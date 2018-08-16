@@ -1,9 +1,9 @@
 const https     = require('https');
-var trelloKey   = "<trelloKey>";
-var trelloBoard = "<trelloBoard>"
-var trelloToken = "<trelloToken";
+var trelloKey   = "ffdf2de0c22db3f60875b59df83bc466";
+var trelloBoard = "v2w2pl1W"
+var trelloToken = "e51f75ea59efc02af1043a53ad01035437e47f01e5ae43f41c78cab20d19ccc9";
 var trelloUrl   = `https://api.trello.com/1/boards/${trelloBoard}/lists?cards=open&card_fields=name&fields=name&key=${trelloKey}&token=${trelloToken}`
-var flowToken   = "<flowDockToken>";
+var flowToken   = "13e968438af7f458b07b70dd9ce11c55";
 
 function createID() {
   var date = new Date();
@@ -12,16 +12,6 @@ function createID() {
 }
 
 var threadId = createID();
-
-function callback(error, response, body) {
-  if (!error) {
-    var info = JSON.parse(JSON.stringify(body));
-    console.log(info);
-  }
-  else {
-    console.log('Error happened: '+ error);
-  }
-}
 
 function buildFieldArray(body) {
   var fieldArray = new Array;
@@ -100,7 +90,7 @@ function postToFlowDock(body) {
 }
 
 exports.handler = function(event, context) {
-  
+
   const getContent = function(url) {
     // return new pending promise
     return new Promise((resolve, reject) => {
@@ -124,5 +114,5 @@ exports.handler = function(event, context) {
   };
 
   getContent(trelloUrl).then((response) => postToFlowDock(response)).catch((err) => console.error('Error' + err));
-  
+
 };
