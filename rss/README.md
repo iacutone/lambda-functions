@@ -10,5 +10,7 @@ __TODO__
 
 1. Find a way to automate zipping the files together
   - Currently, I need to run:
-      1. `zip lambda.zip lambda_function.py` for files
-      1. `zip -r lambda.zip newspaper/` for file directories
+      1. find . -maxdepth 1 -type d | zip -r lambda.zip *
+      1. find . -maxdepth 1 -type f | zip lambda.zip *
+
+  - Write an ansible script?
