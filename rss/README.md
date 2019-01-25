@@ -5,6 +5,11 @@ This code does not include the needed packages from `pip`. In order for this cod
 
 These packages _need_ to be installed via docker:
 1. `docker run -v /Users/iacutone/lambda-functions/rss:/working -it --rm ubuntu`
+1. `apt-get update`
+1. `apt-get install python-pip`
+1. `apt-get install python3-pip`
+1. `apt-get install zip`
+1. `cd working`
 
 __TODO__
 
