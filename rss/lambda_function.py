@@ -12,7 +12,7 @@ logger.setLevel(logging.DEBUG)
 def lambda_handler(event=None, context=None):
     logger.info('Lambda function invoked!')
 
-    rss_feed = RssFeed.parse('http://ep00.epimg.net/rss/elpais/portada_america.xml')
+    rss_feed = RssFeed.parse('http://ep00.epimg.net/rss/tags/ultimas_noticias.xml')
     logger.info('rss_feed success')
     article_text = ParseArticle.new(rss_feed)
     logger.info('article_text success')
