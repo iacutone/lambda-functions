@@ -1,4 +1,5 @@
 import logging
+import requests
 from rss_feed import RssFeed
 from parse_article import ParseArticle
 from translate_article import TranslateArticle
@@ -23,4 +24,5 @@ def lambda_handler(event=None, context=None):
 
     Mailer(emails, translated_article)
 
+    requests.get("https://cronhub.io/ping/9b7e1860-7ffb-11ea-83b7-11422ae8ff81") 
     return 'Success!'
