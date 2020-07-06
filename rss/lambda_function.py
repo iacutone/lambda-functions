@@ -1,4 +1,5 @@
 import logging
+import os
 import requests
 from rss_feed import RssFeed
 from parse_article import ParseArticle
@@ -13,7 +14,7 @@ logger.setLevel(logging.DEBUG)
 def lambda_handler(event=None, context=None):
     logger.info('Lambda function invoked!')
 
-    rss_feed = RssFeed.parse('http://ep00.epimg.net/rss/tags/ultimas_noticias.xml')
+    rss_feed = RssFeed.parse(os.environ['EL_PAIS_RSS_URL'])
     logger.info('rss_feed success')
     article_text = ParseArticle.new(rss_feed)
     logger.info('article_text success')
