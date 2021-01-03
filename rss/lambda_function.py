@@ -27,3 +27,6 @@ def lambda_handler(event=None, context=None):
 
     requests.get("https://cronhub.io/ping/9b7e1860-7ffb-11ea-83b7-11422ae8ff81") 
     return 'Success!'
+
+# if __name__ == '__main__':
+#     lambda_handler()

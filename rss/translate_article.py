@@ -6,8 +6,10 @@ class TranslateArticle:
 
         translator = Translator()
         eng_translation = []
+
         for text in paragraph:
-            eng_translation.append(translator.translate(text).text)
+            if text != "":
+              eng_translation.append(translator.translate(text).text)
 
         self.merged_paragraph = list(zip(paragraph, eng_translation))
 
